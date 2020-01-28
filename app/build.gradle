@@ -24,6 +24,11 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
 
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutinesAdapterVersion"
 }
 
 
