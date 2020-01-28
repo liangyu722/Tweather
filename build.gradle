@@ -31,4 +31,5 @@ ext {
     appCompatVersion = '1.1.0'
     retrofitVersion = '2.7.1'
     retrofitCoroutinesAdapterVersion = '0.9.2'
+    daggerVersion = '2.25.4'
 }
