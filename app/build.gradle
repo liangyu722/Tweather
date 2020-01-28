@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion "24.0.1"
     defaultConfig {
         applicationId "com.twitter.challenge"
-        minSdkVersion 16
-        targetSdkVersion 24
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -23,3 +23,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.assertj:assertj-core:2.5.0'
 }
+
+
