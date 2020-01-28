@@ -1,8 +1,5 @@
 package com.twitter.challenge.data
 
-import com.twitter.challenge.data.WeatherCache
-import com.twitter.challenge.data.WeatherEntity
-
 class WeatherMemoryCache : WeatherCache {
 
     private var currentWeatherData: WeatherEntity? = null
