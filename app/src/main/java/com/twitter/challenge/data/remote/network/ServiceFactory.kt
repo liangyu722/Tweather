@@ -1,4 +1,4 @@
-package com.twitter.challenge.data.network
+package com.twitter.challenge.data.remote.network
 
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory

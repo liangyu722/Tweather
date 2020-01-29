@@ -1,4 +1,6 @@
-package com.twitter.challenge.data
+package com.twitter.challenge.data.cache
+
+import com.twitter.challenge.data.WeatherEntity
 
 class WeatherMemoryCache : WeatherCache {
 

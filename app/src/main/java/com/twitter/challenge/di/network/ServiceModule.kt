@@ -2,8 +2,8 @@ package com.twitter.challenge.di.network
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.twitter.challenge.data.network.ServiceFactory
-import com.twitter.challenge.data.network.WeatherService
+import com.twitter.challenge.data.remote.network.ServiceFactory
+import com.twitter.challenge.data.remote.network.WeatherService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
