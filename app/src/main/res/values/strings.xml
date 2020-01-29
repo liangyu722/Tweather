@@ -2,4 +2,7 @@
     <string name="app_name">Tweather</string>
     <string name="current_temperature">Current temperature</string>
     <string name="temperature">%1$f °C / %2$f °F</string>
+
+    <string name="standard_deviation_error">Unable to calculate standard deviation for future days</string>
+    <string name="current_weather_error">Unable to retrieve current weather</string>
 </resources>

@@ -11,4 +11,6 @@ interface ViewWeatherViewModel {
     val errorMessage: LiveData<Event<Int>>
     val currentWeather: LiveData<Weather>
     val temperatureStandDeviation: LiveData<TempStandDeviation>
+
+    fun getStandDeviationForFutureDays(days: Int)
 }
