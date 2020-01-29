@@ -1,4 +1,4 @@
-package com.twitter.challenge.data.networking.response
+package com.twitter.challenge.data.remote.network.response
 
 data class WeatherResponse(
         val clouds: Clouds,

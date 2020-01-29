@@ -1,4 +1,4 @@
-package com.twitter.challenge.data.networking.response
+package com.twitter.challenge.data.remote.network.response
 
 data class Clouds(
         val cloudiness: Int

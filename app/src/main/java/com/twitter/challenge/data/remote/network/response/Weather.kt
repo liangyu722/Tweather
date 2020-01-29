@@ -1,7 +1,7 @@
-package com.twitter.challenge.data.networking.response
+package com.twitter.challenge.data.remote.network.response
 
 data class Weather(
         val humidity: Int,
         val pressure: Int,
-        val temp: Double
+        val temp: Float
 )
