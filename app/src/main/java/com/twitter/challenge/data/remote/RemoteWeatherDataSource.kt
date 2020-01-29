@@ -1,6 +1,8 @@
-package com.twitter.challenge.data
+package com.twitter.challenge.data.remote
 
 import com.twitter.challenge.common.Result
+import com.twitter.challenge.data.WeatherDataSource
+import com.twitter.challenge.data.WeatherEntity
 import com.twitter.challenge.data.networking.response.WeatherResponse
 import com.twitter.challenge.data.remote.network.WeatherService
 import kotlinx.coroutines.Deferred

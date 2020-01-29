@@ -2,7 +2,7 @@ package com.twitter.challenge.di.repository
 
 import com.twitter.challenge.data.WeatherDataSource
 import com.twitter.challenge.data.DefaultWeatherRepository
-import com.twitter.challenge.data.RemoteWeatherDataSource
+import com.twitter.challenge.data.remote.RemoteWeatherDataSource
 import com.twitter.challenge.data.WeatherRepository
 import com.twitter.challenge.data.cache.WeatherCache
 import com.twitter.challenge.data.cache.WeatherMemoryCache
