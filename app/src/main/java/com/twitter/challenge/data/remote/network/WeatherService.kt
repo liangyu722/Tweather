@@ -1,6 +1,6 @@
 package com.twitter.challenge.data.remote.network
 
-import com.twitter.challenge.data.networking.response.WeatherResponse
+import com.twitter.challenge.data.remote.network.response.WeatherResponse
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Path

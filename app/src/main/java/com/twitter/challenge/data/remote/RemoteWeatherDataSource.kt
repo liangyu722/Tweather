@@ -3,7 +3,7 @@ package com.twitter.challenge.data.remote
 import com.twitter.challenge.common.Result
 import com.twitter.challenge.data.WeatherDataSource
 import com.twitter.challenge.data.WeatherEntity
-import com.twitter.challenge.data.networking.response.WeatherResponse
+import com.twitter.challenge.data.remote.network.response.WeatherResponse
 import com.twitter.challenge.data.remote.network.WeatherService
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.awaitAll
@@ -42,7 +42,7 @@ class RemoteWeatherDataSource(
 
     private fun WeatherResponse.toWeatherEntity() = WeatherEntity(
             locationName = this.name,
-            tempCesius = this.weather.temp,
+            tempCelsius = this.weather.temp,
             cloudiness = this.clouds.cloudiness,
             windSpeed = this.wind.speed
     )

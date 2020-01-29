@@ -1,6 +1,6 @@
 package com.twitter.challenge.data
 
-import com.twitter.challenge.common.RepositoryException
+import com.twitter.challenge.common.DataLoadingException
 import com.twitter.challenge.common.Result
 import com.twitter.challenge.data.cache.WeatherCache
 import kotlinx.coroutines.CoroutineDispatcher
@@ -24,7 +24,7 @@ class DefaultWeatherRepository(
                 return@withContext newCurrentWeather
             }
 
-            return@withContext Result.Error(RepositoryException("Cannot load current weather"))
+            return@withContext Result.Error(DataLoadingException("Cannot load current weather"))
         }
     }
 
@@ -40,7 +40,7 @@ class DefaultWeatherRepository(
                 weatherCache.setFutureWeather(it.data)
                 return@withContext newFutureWeather
             }
-            return@withContext Result.Error(RepositoryException("Cannot load future weather"))
+            return@withContext Result.Error(DataLoadingException("Cannot load future weather"))
         }
     }
 
