@@ -40,7 +40,7 @@ class ServiceModule {
     }
 
     @Provides
-    fun providesGeoNameEarthquakeService(factory: ServiceFactory): WeatherService {
+    fun providesWeatherService(factory: ServiceFactory): WeatherService {
         return factory.createService(WeatherService::class.java, ENDPOINT)
     }
 }
