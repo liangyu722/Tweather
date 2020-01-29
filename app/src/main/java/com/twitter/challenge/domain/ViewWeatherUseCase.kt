@@ -1,6 +1,6 @@
 package com.twitter.challenge.domain
 
-import com.twitter.challenge.common.InvalidTemperatureException
+import com.twitter.challenge.common.InvalidCalculationException
 import com.twitter.challenge.common.Result
 import com.twitter.challenge.common.Result.Error
 import com.twitter.challenge.common.Result.Success
@@ -39,10 +39,9 @@ class ViewWeatherUseCase(
                             standDeviationCelsius = standDeviationCelsius,
                             standDeviationFahrenheit = standDeviationFahrenheit)
                     )
-                } catch (e: InvalidTemperatureException) {
+                } catch (e: InvalidCalculationException) {
                     Error(e)
                 }
-
             }
             is Error -> futureWeatherResponse
         }
@@ -59,19 +58,15 @@ class ViewWeatherUseCase(
     private fun celsiusToFahrenheit(temperatureInCelsius: Float) = temperatureInCelsius * 1.8f + 32
 
     private fun List<Float>.calculateStandardDeviation(): Double {
-        if (this.isEmpty()) {
-            return 0.0
+        if (this.size <= 1) {
+            //Unable to calculate standard deviation, unable to divide by n - 1
+            throw InvalidCalculationException("Unable to calculate standard deviation")
         }
         val n = this.size
         val mean = this.average()
         val pow = this.map { temperature ->
             (temperature - mean).pow(2)
         }.sum()
-
-        if (pow < 0) {
-            //Overflow
-            throw InvalidTemperatureException("Invalid temperature")
-        }
         return sqrt(pow / (n - 1))
     }
 }
