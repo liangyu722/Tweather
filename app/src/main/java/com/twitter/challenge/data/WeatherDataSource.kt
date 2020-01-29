@@ -2,7 +2,7 @@ package com.twitter.challenge.data
 
 import com.twitter.challenge.common.Result
 
-interface DataSource {
+interface WeatherDataSource {
 
     suspend fun getCurrentWeatherEntry(): Result<WeatherEntity>
 

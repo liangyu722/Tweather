@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 
 class DefaultWeatherRepository(
-        private val remoteDataSource: DataSource,
+        private val remoteWeatherDataSource: WeatherDataSource,
         private val weatherCache: WeatherCache,
         private val backgroundDispatcher: CoroutineDispatcher
 ) : WeatherRepository {
@@ -18,7 +18,7 @@ class DefaultWeatherRepository(
                 return@withContext Result.Success(cachedCurrentWeather)
             }
 
-            val newCurrentWeather = remoteDataSource.getCurrentWeatherEntry()
+            val newCurrentWeather = remoteWeatherDataSource.getCurrentWeatherEntry()
             (newCurrentWeather as? Result.Success)?.let {
                 weatherCache.setCurrentWeather(it.data)
                 return@withContext newCurrentWeather
@@ -35,7 +35,7 @@ class DefaultWeatherRepository(
                 return@withContext Result.Success(cachedFutureWeather)
             }
 
-            val newFutureWeather = remoteDataSource.getFutureWeatherEntry(days)
+            val newFutureWeather = remoteWeatherDataSource.getFutureWeatherEntry(days)
             (newFutureWeather as? Result.Success)?.let {
                 weatherCache.setFutureWeather(it.data)
                 return@withContext newFutureWeather

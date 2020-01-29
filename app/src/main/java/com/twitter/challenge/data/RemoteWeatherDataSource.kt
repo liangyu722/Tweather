@@ -6,9 +6,9 @@ import com.twitter.challenge.data.remote.network.WeatherService
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.awaitAll
 
-class RemoteDataSource(
+class RemoteWeatherDataSource(
         private val weatherService: WeatherService
-) : DataSource {
+) : WeatherDataSource {
 
     override suspend fun getCurrentWeatherEntry(): Result<WeatherEntity> {
         return try {
