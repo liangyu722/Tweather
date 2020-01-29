@@ -32,4 +32,9 @@ ext {
     retrofitVersion = '2.7.1'
     retrofitCoroutinesAdapterVersion = '0.9.2'
     daggerVersion = '2.25.4'
+
+    //Testing
+    mockkVersion = '1.9.3'
+    junitVersion = '4.12'
+    kluentVersion = '1.56'
 }
