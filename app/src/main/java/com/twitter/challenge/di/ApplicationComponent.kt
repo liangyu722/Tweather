@@ -2,6 +2,7 @@ package com.twitter.challenge.di
 
 import android.content.Context
 import com.twitter.challenge.WeatherApplication
+import com.twitter.challenge.di.domain.DomainModule
 import com.twitter.challenge.di.network.ServiceModule
 import com.twitter.challenge.di.presentation.WeatherModule
 import com.twitter.challenge.di.repository.DataModule
@@ -16,8 +17,9 @@ import javax.inject.Singleton
         modules = [
             AndroidSupportInjectionModule::class,
             ServiceModule::class,
-            WeatherModule::class,
-            DataModule::class
+            DataModule::class,
+            DomainModule::class,
+            WeatherModule::class
         ]
 )
 interface ApplicationComponent : AndroidInjector<WeatherApplication> {

@@ -6,13 +6,15 @@ import androidx.lifecycle.viewModelScope
 import com.twitter.challenge.R
 import com.twitter.challenge.common.Event
 import com.twitter.challenge.common.Result
+import com.twitter.challenge.domain.ViewWeather
 import com.twitter.challenge.domain.ViewWeatherUseCase
 import com.twitter.challenge.model.TempStandDeviation
 import com.twitter.challenge.model.Weather
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class WeatherViewModel(
-        private val weatherUseCase: ViewWeatherUseCase
+class WeatherViewModel @Inject constructor(
+        private val weatherUseCase: ViewWeather
 ) : ViewModel(), ViewWeatherViewModel {
 
     override val loading = MutableLiveData<Boolean>()
