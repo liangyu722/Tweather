@@ -51,7 +51,7 @@ class ViewWeatherUseCase(
             locationName = this.locationName,
             tempCelsius = this.tempCelsius,
             tempFahrenheit = celsiusToFahrenheit(this.tempCelsius),
-            cloudiness = this.cloudiness,
+            isCloudy = this.cloudiness > 50,
             windSpeed = this.windSpeed
     )
 

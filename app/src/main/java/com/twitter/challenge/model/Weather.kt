@@ -5,5 +5,5 @@ data class Weather (
     val tempCelsius: Float,
     val tempFahrenheit: Float,
     val windSpeed: Double,
-    val cloudiness: Int
+    val isCloudy: Boolean
 )

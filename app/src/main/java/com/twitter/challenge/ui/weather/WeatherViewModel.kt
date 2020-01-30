@@ -16,6 +16,9 @@ import javax.inject.Inject
 class WeatherViewModel @Inject constructor(
         private val weatherUseCase: ViewWeather
 ) : ViewModel(), ViewWeatherViewModel {
+    companion object {
+        private const val FUTURE_DAY = 5
+    }
 
     override val loading = MutableLiveData<Boolean>()
     override val errorMessage = MutableLiveData<Event<Int>>()
@@ -37,10 +40,10 @@ class WeatherViewModel @Inject constructor(
         }
     }
 
-    override fun getStandDeviationForFutureDays(days: Int) {
+    override fun getStandDeviationForFutureDays() {
         viewModelScope.launch {
             loading.value = true
-            val result = weatherUseCase.getFutureWeatherStandardDeviation(days)
+            val result = weatherUseCase.getFutureWeatherStandardDeviation(FUTURE_DAY)
             when (result) {
                 is Result.Success -> temperatureStandDeviation.value = result.data
                 is Error -> setErrorMessage(R.string.standard_deviation_error)
