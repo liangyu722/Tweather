@@ -5,9 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.twitter.challenge.R
 import com.twitter.challenge.common.Event
-import com.twitter.challenge.common.Result
+import com.twitter.challenge.common.Result.*
 import com.twitter.challenge.domain.ViewWeather
-import com.twitter.challenge.domain.ViewWeatherUseCase
 import com.twitter.challenge.model.TempStandDeviation
 import com.twitter.challenge.model.Weather
 import kotlinx.coroutines.launch
@@ -34,9 +33,10 @@ class WeatherViewModel @Inject constructor(
             loading.value = true
             val result = weatherUseCase.getCurrentWeather()
             when (result) {
-                is Result.Success -> currentWeather.value = result.data
+                is Success -> currentWeather.value = result.data
                 is Error -> setErrorMessage(R.string.current_weather_error)
             }
+            loading.value = false
         }
     }
 
@@ -45,7 +45,7 @@ class WeatherViewModel @Inject constructor(
             loading.value = true
             val result = weatherUseCase.getFutureWeatherStandardDeviation(FUTURE_DAY)
             when (result) {
-                is Result.Success -> temperatureStandDeviation.value = result.data
+                is Success -> temperatureStandDeviation.value = result.data
                 is Error -> setErrorMessage(R.string.standard_deviation_error)
             }
             loading.value = false

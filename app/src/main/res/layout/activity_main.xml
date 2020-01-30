@@ -10,7 +10,6 @@
         <variable
             name="viewmodel"
             type="com.twitter.challenge.ui.weather.ViewWeatherViewModel" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,11 +24,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:onClick="@{() -> viewmodel.getStandDeviationForFutureDays()}"
             android:text="@string/future_standard_deviation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cloud_icon_iv"
-            android:onClick="@{() -> viewmodel.getStandDeviationForFutureDays()}"/>
+            app:layout_constraintTop_toBottomOf="@+id/cloud_icon_iv" />
 
         <ImageView
             android:id="@+id/cloud_icon_iv"
@@ -41,6 +40,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/current_wind" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="@{viewmodel.loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/current_wind"
@@ -56,10 +67,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/textview_margin"
+            android:text="@{String.valueOf(viewmodel.currentWeather.windSpeed)}"
             app:layout_constraintBottom_toBottomOf="@+id/current_wind"
             app:layout_constraintStart_toEndOf="@+id/current_wind"
             app:layout_constraintTop_toTopOf="@+id/current_wind"
-            android:text="@{String.valueOf(viewmodel.currentWeather.windSpeed)}"
             tools:text="Wind speed" />
 
         <TextView
@@ -78,6 +89,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/current_temperature"
             app:layout_constraintStart_toEndOf="@+id/current_temperature"
             app:layout_constraintTop_toTopOf="@+id/current_temperature"
+            app:temperature="@{viewmodel.currentWeather}"
             tools:text="14 °C / 39 °F" />
 
         <TextView
@@ -97,7 +109,9 @@
             app:layout_constraintBottom_toBottomOf="@+id/standard_deviation"
             app:layout_constraintStart_toEndOf="@+id/standard_deviation"
             app:layout_constraintTop_toTopOf="@+id/standard_deviation"
+            app:temperatureStandardDeviation="@{viewmodel.temperatureStandDeviation}"
             tools:text="Wind speed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
