@@ -59,7 +59,7 @@ class ViewWeatherUseCase(
 
     private fun List<Float>.calculateStandardDeviation(): Double {
         if (this.size <= 1) {
-            //Unable to calculate standard deviation, unable to divide by n - 1
+            //Unable to calculate standard deviation, unable to divide by 0 or less
             throw InvalidCalculationException("Unable to calculate standard deviation")
         }
         val n = this.size

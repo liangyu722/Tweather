@@ -30,4 +30,3 @@ class WeatherActivity : DaggerAppCompatActivity() {
         binding.root.setupToast(this, viewModel.errorMessage)
     }
 }
-
